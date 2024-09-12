@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="bg-gray-100 ">
+
+
+    <div class="mx-8 pt-6 ">
+                <h2 class="text-4xl text-center font-bold mb-4 text-red-700">Liste des plus suivie</h2>
+                <table class="min-w-full bg-white shadow-md rounded-lg">
+                    <thead class="bg-red-400">
+                        <tr>
+                            <th class="py-2 px-4 text-left">#</th>
+                            <th class="py-2 px-4 text-left">Immatriculation</th>
+                            <th class="py-2 px-4 text-left">Modèle</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, flight in list_plus_suivie.items() %}
+                            {% if loop.index <= 5 %}
+                            <tr class="border-b">
+                                <td class="py-2 px-4">{{ loop.index }}</td>
+                                <td class="py-2 px-4">{{ flight.registration }}</td>
+                                <td class="py-2 px-4">{{ flight.model }}</td>
+
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+    </div>
+
+    <div class="flex mt-6 justify-center min-h-screen">
+        <div class="flex flex-row space-x-8">
+
+
+
+            <!-- Tableau des Départs (Bleu) -->
+            <div class="w-1/2">
+                <h2 class="text-4xl text-center font-bold mb-4 text-blue-600">Liste des Départs</h2>
+                <table class="min-w-full bg-white shadow-md rounded-lg">
+                    <thead class="bg-blue-400">
+                        <tr>
+                            <th class="py-2 px-4 text-left">#</th>
+                            <th class="py-2 px-4 text-left">Immatriculation</th>
+                            <th class="py-2 px-4 text-left">Modèle</th>
+                            <th class="py-2 px-4 text-left">Heure</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, flight in flights_d.items() %}
+                            {% if loop.index <= 5 %}
+                            <tr class="border-b">
+                                <td class="py-2 px-4">{{ loop.index }}</td>
+                                <td class="py-2 px-4">{{ flight.registration }}</td>
+                                <td class="py-2 px-4">{{ flight.aircraft }}</td>
+                                <td class="py-2 px-4">{{ flight.time }}</td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tableau des Arrivées (Vert) -->
+            <div class="w-1/2">
+                <h2 class="text-4xl text-center font-bold mb-4 text-green-600">Liste des Arrivées</h2>
+                <table class="min-w-full bg-white shadow-md rounded-lg">
+                    <thead class="bg-green-400">
+                        <tr>
+                            <th class="py-2 px-4 text-left">#</th>
+                            <th class="py-2 px-4 text-left">Immatriculation</th>
+                            <th class="py-2 px-4 text-left">Modèle</th>
+                            <th class="py-2 px-4 text-left">Heure</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, flight in flights_a.items() %}
+                            {% if loop.index <= 5 %}
+                            <tr class="border-b">
+                                <td class="py-2 px-4">{{ loop.index }}</td>
+                                <td class="py-2 px-4">{{ flight.registration }}</td>
+                                <td class="py-2 px-4">{{ flight.aircraft }}</td>
+                                <td class="py-2 px-4">{{ flight.time }}</td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
